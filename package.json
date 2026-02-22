@@ -1,12 +1,12 @@
 {
   "name": "opencode-cachebro",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "OpenCode plugin for cachebro — file cache with diff tracking that saves tokens",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "bun build ./src/index.ts --outdir ./dist --target node --external cachebro --external @opencode-ai/plugin --external @opencode-ai/sdk --external zod && tsc --emitDeclarationOnly",
+    "build": "bun build ./src/index.ts --outdir ./dist --target node --external cachebro --external @tursodatabase/database --external @opencode-ai/plugin --external @opencode-ai/sdk --external zod && tsc --emitDeclarationOnly",
     "typecheck": "tsc --noEmit"
   },
   "keywords": [
@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "@opencode-ai/plugin": "^1.2.10",
-    "cachebro": "^0.2.1"
+    "cachebro": "github:glommer/cachebro"
   },
   "devDependencies": {
     "@opencode-ai/sdk": "^1.2.10",

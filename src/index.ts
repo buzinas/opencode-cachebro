@@ -11,7 +11,7 @@
  *   - Automatic file watching for cache invalidation
  */
 import type { Plugin } from '@opencode-ai/plugin'
-import { createCache } from 'cachebro/dist/cli.mjs'
+import { createCache } from 'cachebro/packages/sdk/src/index.js'
 import { randomUUID } from 'crypto'
 import { resolveProject } from './store.js'
 import { createTools } from './tools.js'
@@ -27,6 +27,14 @@ export const CachebroPlugin: Plugin = async ({ worktree, $ }) => {
   })
 
   await cache.init()
+
+  // Clean up file watchers on process exit
+  const cleanup = () => {
+    watcher.close()
+  }
+  process.on('SIGINT', cleanup)
+  process.on('SIGTERM', cleanup)
+  process.on('exit', cleanup)
 
   return {
     tool: createTools(cache),

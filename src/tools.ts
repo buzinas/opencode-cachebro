@@ -5,7 +5,7 @@
  * adapted to the OpenCode tool() API.
  */
 import { tool } from '@opencode-ai/plugin'
-import type { CacheStore } from 'cachebro/dist/cli.mjs'
+import type { CacheStore } from 'cachebro/packages/sdk/src/cache.js'
 
 export function createTools(cache: CacheStore) {
   return {
