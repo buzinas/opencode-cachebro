@@ -1,0 +1,43 @@
+{
+  "name": "opencode-cachebro",
+  "version": "0.1.0",
+  "description": "OpenCode plugin for cachebro — file cache with diff tracking that saves tokens",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "bun build ./src/index.ts --outdir ./dist --target node --external cachebro --external @opencode-ai/plugin --external @opencode-ai/sdk --external zod && tsc --emitDeclarationOnly",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "opencode",
+    "plugin",
+    "cachebro",
+    "cache",
+    "tokens",
+    "ai",
+    "coding-agent"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/buzinas/opencode-cachebro"
+  },
+  "dependencies": {
+    "@opencode-ai/plugin": "^1.2.10",
+    "cachebro": "^0.2.1"
+  },
+  "devDependencies": {
+    "@opencode-ai/sdk": "^1.2.10",
+    "@types/bun": "latest",
+    "oxfmt": "^0.34.0",
+    "typescript": "^5.0.0"
+  },
+  "opencode": {
+    "type": "plugin",
+    "hooks": []
+  },
+  "files": [
+    "dist"
+  ]
+}
